@@ -1,18 +1,16 @@
 import express from 'express';
-import dotenv from 'dotenv';
-import userRoutes from './routes/userRoutes.js';
+import {
+  createUserController,
+  getUsersController,
+  getUserByIdController,
+  deleteUserController
+} from '../controllers/userController.js';
 
-dotenv.config();
-const app = express();
+const router = express.Router();
 
-app.use(express.json());
+router.post('/', createUserController);
+router.get('/', getUsersController);
+router.get('/:id', getUserByIdController);
+router.delete('/:id', deleteUserController);
 
-// Rutas
-app.use('/users', userRoutes);
-
-app.get('/', (req, res) => {
-  res.send('Users Service funcionando 🚇');
-});
-
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => console.log(`Users Service corriendo en puerto ${PORT}`));
+export default router;

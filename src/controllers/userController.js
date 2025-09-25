@@ -5,8 +5,8 @@ import { createUser, getUsers, getUserById, softDeleteUser } from '../models/use
 
 // Esquema de validación con Joi
 const userSchema = Joi.object({
-  nombre: Joi.string().min(3).required(),
-  apellido: Joi.string().min(3).required(),
+  name: Joi.string().min(3).required(),
+  lastname: Joi.string().min(3).required(),
   email: Joi.string().email().pattern(/@perlametro\.cl$/).required(),
   password: Joi.string()
     .min(8)
@@ -22,7 +22,7 @@ export const createUserController = async (req, res) => {
     const { error } = userSchema.validate(req.body);
     if (error) return res.status(400).json({ error: error.details[0].message });
 
-    const { nombre, apellido, email, password } = req.body;
+    const { name, lastname, email, password } = req.body;
 
     // Hash de la contraseña
     const salt = await bcrypt.genSalt(10);
@@ -30,10 +30,11 @@ export const createUserController = async (req, res) => {
 
     const newUser = await createUser({
       id: uuidv4(),
-      nombre,
-      apellido,
+      name,
+      lastname,
       email,
-      password_hash
+      password_hash,
+      state: true
     });
 
     res.status(201).json(newUser);

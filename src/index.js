@@ -11,7 +11,7 @@ app.use(express.json());
 app.use('/users', userRoutes);
 
 app.get('/', (req, res) => {
-  res.send('Users Service funcionando 🚇');
+  res.send('Users Service funcionando');
 });
 
 const PORT = process.env.PORT || 4000;
