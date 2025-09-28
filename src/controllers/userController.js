@@ -79,12 +79,19 @@ export const getUserByIdController = async (req, res) => {
 
 export const deleteUserController = async (req, res) => {
   try {
+    const user = await getUserById(req.params.id);
+
+    if (!user) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+
     await softDeleteUser(req.params.id);
     res.json({ message: 'Usuario desactivado (soft delete)' });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
+
 
 export const updateUserController = async (req, res) => {
   try {
