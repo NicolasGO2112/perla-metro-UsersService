@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import Joi from 'joi';
 import { createUser, getUsers, getUserById, softDeleteUser, updateUser, getUserByEmail } from '../models/userModel.js';
 
