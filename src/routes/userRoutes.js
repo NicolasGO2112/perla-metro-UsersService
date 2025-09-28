@@ -12,7 +12,7 @@ import { authenticateJWT, checkAdmin } from '../middleware/authMiddleware.js';
 const router = express.Router();
 
 router.post('/', createUserController);
-router.get('/', authenticateJWT, checkAdmin, getUsersController);
+router.get('/', getUsersController);
 router.post('/login', loginUser);
 router.get('/:id', getUserByIdController);
 router.delete('/:id', deleteUserController);
