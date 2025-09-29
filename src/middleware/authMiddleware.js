@@ -33,7 +33,7 @@ export const checkAdmin = (req, res, next) => {
   next();
 };
 
-// Middleware opcional para verificar otros roles
+// Middleware para verificar otros roles
 export const checkRole = (role) => (req, res, next) => {
   if (!req.user) return res.status(401).json({ error: 'No autenticado' });
   if (req.user.role !== role) return res.status(403).json({ error: 'No autorizado' });
