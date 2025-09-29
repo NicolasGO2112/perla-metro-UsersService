@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Juan\",\r\n  \"lastname\": \"Perez\",\r\n  \"email\": \"juan2@perlametro.cl\",\r\n  \"password\": \"Seguro123!\"\r\n}",
+					"raw": "{\r\n  \"name\": \"Jose\",\r\n  \"lastname\": \"Perez\",\r\n  \"email\": \"Jose1@perlametro.cl\",\r\n  \"password\": \"MuySeguro123!\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,7 +40,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:4000/users",
+					"raw": "http://localhost:4000/users?=name&=email&=state",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -48,6 +48,20 @@
 					"port": "4000",
 					"path": [
 						"users"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "name"
+						},
+						{
+							"key": "",
+							"value": "email"
+						},
+						{
+							"key": "",
+							"value": "state"
+						}
 					]
 				}
 			},
@@ -57,26 +71,6 @@
 			"name": "GetUsersById",
 			"request": {
 				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:4000/users/695f1b67-a891-44a1-88f3-07b360316422",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"users",
-						"695f1b67-a891-44a1-88f3-07b360316422"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "UpdateUser",
-			"request": {
-				"method": "PUT",
 				"header": [],
 				"url": {
 					"raw": "http://localhost:4000/users/d48c15e8-952b-4299-9782-31ecd6f3c21b",
@@ -94,12 +88,21 @@
 			"response": []
 		},
 		{
-			"name": "DeleteUser",
+			"name": "UpdateUser",
 			"request": {
-				"method": "DELETE",
+				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Manuel\",\r\n  \"lastname\": \"Perez\",\r\n  \"email\": \"Josepo1@perlametro.cl\",\r\n  \"password\": \"MuySeguro123!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:4000/users/695f1b67-a891-44a1-88f3-07b360316422",
+					"raw": "http://localhost:4000/users/ae87b5cd-27c5-494d-b404-13d8f1748b9c",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -107,7 +110,56 @@
 					"port": "4000",
 					"path": [
 						"users",
-						"695f1b67-a891-44a1-88f3-07b360316422"
+						"ae87b5cd-27c5-494d-b404-13d8f1748b9c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/users/d48c15e8-952b-4299-9782-31ecd6f3c21b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"d48c15e8-952b-4299-9782-31ecd6f3c21b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"Josepo1@perlametro.cl\",\r\n    \"password\":\"MuySeguro123!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"login"
 					]
 				}
 			},

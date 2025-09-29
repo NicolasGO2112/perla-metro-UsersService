@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { getUserByEmail } from '../models/userModel.js';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'mi_secreto_super_seguro';
+const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-key-here-minimum-32-characters-long';
 
 export const loginUser = async (req, res) => {
   try {
